@@ -1,3 +1,7 @@
+MODX 3 - 2022-10-28 | mw-modx3.loc
+
+Начальный источник - https://gist.github.com/Rachind/e7ccb1fa536b3a1b1f1e3da26135a261#file-modx-base-setup-txt 
+
 Приложения:
 TinyMCE Rich Text Editor
 Ace
@@ -5,15 +9,14 @@ FormIt
 pdoTools
 translit
 filetranslit
-phpthumbon
+- phpthumbon
 ajaxForm
 MIGX
-MinifyX
+- MinifyX
 ClientConfig
-Console
-tagElementPlugin
-simpleUpdater
-AutoTemplate
+- Console
+- tagElementPlugin
+- AutoTemplate
 
 Установка источника файлов
 assets/images/

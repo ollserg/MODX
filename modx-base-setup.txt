@@ -1,0 +1,82 @@
+Приложения:
+TinyMCE Rich Text Editor
+Ace
+FormIt
+pdoTools
+translit
+filetranslit
+phpthumbon
+ajaxForm
+MIGX
+MinifyX
+ClientConfig
+Console
+tagElementPlugin
+simpleUpdater
+AutoTemplate
+
+Установка источника файлов
+assets/images/
+Не забыть создать папку
+
+Права на новый файл 					new_file_permissions				0644
+Права на новую папку 					new_folder_permissions				0755
+
+$start_settings = array(
+    'friendly_alias_translit' =>			'russian',              //Транслитерация псевдонимов
+    'friendly_urls' =>                      1,                      //Использовать дружественные URL
+    'friendly_urls_strict' =>               1,                      //Строгий режим дружественных
+    'use_alias_path' =>                     1,                      //Использовать вложенные URL
+    'manager_date_format' => 				'd.m.Y',                //Формат даты в панели управления
+    'manager_time_format' => 				'H:i',                  //Формат времени
+    'manager_week_start' => 				1,                      //Первый день недели
+    'topmenu_show_descriptions' =>          0,                      //Показывать описание в верхнем меню
+    'publish_default' =>                    1,                      //Публиковать по умолчанию
+    'site_name' =>                          'Система мониторинга',  //Название сайта
+	'feed_modx_news_enabled' =>             0,                      //Отображение RSS-канала «Новости...
+    'feed_modx_security_enabled' =>         0,                      //Отображение RSS-канала «Уведом...
+    'default_media_source' =>   			2,                      //Источник файлов по умолчанию
+    'ace.theme' =>							'twilight',				//Ace: Цветовая схема
+	'ace.word_wrap' =>						1,						//Ace: Переносить слова
+	'ace.soft_tabs'	=>						0,						//Ace: Мягкая табуляция
+	'ace.fold_widgets' =>					0,						//Ace: Скрывать строки
+	'pdotools_fenom_parser' => 				1,						//Использовать Fenom на страницах
+	'default_template' => 					0,						//Пустой шаблон по умолчанию
+	'modx_browser_default_sort' =>			'lastmod',
+	'automatic_template_assignment' => 		'sibling'
+);
+
+foreach($start_settings as $key=>$v) {
+    $s = $modx->getObject('modSystemSetting', array('key'=>$key));    
+    $s->set('value', $v);
+    $s->save();
+}
+
+//'friendly_alias_restrict_chars_pattern' => 					'/[\0\x0B\t\n\r\f\a&=+%#<>()”“«»,"~:`@\?\[\]\{\}\|\^'\\]/',						//Шаблон для фильтрации символов
+
+Создание tv
+metaTitle
+metaDescription
+metaKeywords
+
+Настройка форм: вкладки для SEO 		modx-panel-resource-seo
+
+Порядок панелей
+1. Онлайн
+2. Недавно
+3. Upgrade
+
+<title>[[*metaTitle:ifempty=`[[++site_name]] — [[*pagetitle]]`]]</title>
+<base href="[[++site_url]]">
+<meta name="keywords" content="[[*metaKeywords]]" />
+<meta name="description" content="[[*metaDescription]]" />
+
+или на Fenom:
+
+<title>{$_modx->resource.metaTitle ?: $_modx->config.site_name ~ ' — ' ~ $_modx->resource.pagetitle}</title>
+<base href="{$_modx->config.site_url}">
+<meta name="keywords" content="{$_modx->resource.metaKeywords}" />
+<meta name="description" content="{$_modx->resource.metaDescription}" />
+
+Мета вьюпорт для адаптивных сайтов 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
